@@ -1,5 +1,5 @@
 const express = require('express');
-const DevController = require('./controllers/ControllerDev.js')
+const DevController = require('./controllers/ControllerDev.js');
 
 const routes = express.Router();
 
@@ -13,10 +13,7 @@ routes.get('/', function(req,res) {
     res.json({ message:`Hello fking world!!! ${req.query.name}` }); // por convencao, melhor retornar como um objeto json
 });
 
-routes.post('/dev', function(req,DevController) {
-    res.json(req.body);
-    //res.json({ status: true })
-});
+routes.post('/dev', DevController.store);
 
 // expondo variavel de rotas para que o server.js possa enxergar
 module.exports = routes;
